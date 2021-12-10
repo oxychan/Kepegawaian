@@ -1,4 +1,3 @@
-
 package backend;
 
 import java.sql.ResultSet;
@@ -9,9 +8,10 @@ import java.util.ArrayList;
  * @author taufik
  */
 public class Pegawai {
+
     private String nip;
     private String nama;
-    private Jabatan jabatan;
+    private Jabatan jabatan = new Jabatan();
     private String ttl;
     private String no_telp;
     private String email;
@@ -95,15 +95,15 @@ public class Pegawai {
     public void setJamKerja(int jamKerja) {
         this.jamKerja = jamKerja;
     }
-    
+
     public Pegawai getById(String nip) {
         Pegawai peg = new Pegawai();
-        
-        ResultSet rs = DBHelper.selectQuery("SELECT * FROM pegawai "+
-                                            " WHERE nip = '" + nip + "'");
-        
+
+        ResultSet rs = DBHelper.selectQuery("SELECT * FROM pegawai "
+                + " WHERE nip = '" + nip + "'");
+
         try {
-            while(rs.next()) {
+            while (rs.next()) {
                 peg = new Pegawai();
                 peg.setNip(rs.getString("nip"));
                 peg.setNama(rs.getString("nama"));
@@ -114,50 +114,50 @@ public class Pegawai {
                 peg.setAlamat(rs.getString("alamat"));
                 peg.setJamKerja(rs.getInt("jam_kerja"));
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
         return peg;
     }
-    
+
     public ArrayList<Pegawai> getAll() {
         ArrayList<Pegawai> ListPegawai = new ArrayList();
-        
+
         ResultSet rs = DBHelper.selectQuery("SELECT * FROM pegawai");
-        
+
         try {
-            while(rs.next()) {
+            while (rs.next()) {
                 Pegawai peg = new Pegawai();
                 peg.setNip(rs.getString("nip"));
-                peg.setNama(rs.getString("nama"));
                 peg.getJabatan().setIdJabatan(rs.getInt("id_jabatan"));
+                peg.setNama(rs.getString("nama"));
                 peg.setTtl(rs.getString("tanggal_lahir"));
                 peg.setNo_telp(rs.getString("no_telp"));
                 peg.setEmail(rs.getString("email"));
                 peg.setAlamat(rs.getString("alamat"));
                 peg.setJamKerja(rs.getInt("jam_kerja"));
-                
+
                 ListPegawai.add(peg);
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
         return ListPegawai;
     }
-    
+
     public ArrayList<Pegawai> search(String keyword) {
         ArrayList<Pegawai> ListPegawai = new ArrayList();
-        
+
         ResultSet rs = DBHelper.selectQuery("SELECT * FROM pegawai WHERE "
-                                        + " nip LIKE '%" + keyword + "%' "
-                                        + " OR nama LIKE '%" + keyword + "%' "
-                                        + " OR email LIKE '%" + keyword + "%' "
-                                        );
-        
+                + " nip LIKE '%" + keyword + "%' "
+                + " OR nama LIKE '%" + keyword + "%' "
+                + " OR email LIKE '%" + keyword + "%' "
+        );
+
         try {
-            while(rs.next()) {
+            while (rs.next()) {
                 Pegawai peg = new Pegawai();
                 peg.setNip(rs.getString("nip"));
                 peg.setNama(rs.getString("nama"));
@@ -167,22 +167,22 @@ public class Pegawai {
                 peg.setEmail(rs.getString("email"));
                 peg.setAlamat(rs.getString("alamat"));
                 peg.setJamKerja(rs.getInt("jam_kerja"));
-                
+
                 ListPegawai.add(peg);
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
         return ListPegawai;
     }
-    
+
     public void save() {
-        if(getById(nip).getNip() == null) {
+        if (getById(nip).getNip() == null) {
             String SQL = "INSERT INTO pegawai VALUES ("
                     + "     '" + this.nip + "', "
+                    + "     '" + this.jabatan.getIdJabatan() + "', "
                     + "     '" + this.nama + "', "
-                    + "     '" + this.jabatan + "', "
                     + "     '" + this.ttl + "', "
                     + "     '" + this.no_telp + "', "
                     + "     '" + this.email + "', "
@@ -192,8 +192,8 @@ public class Pegawai {
             this.nip = DBHelper.insertQueryGetIdStr(SQL);
         } else {
             String SQL = "UPDATE pegawai SET "
+                    + " id_jabatan='" + this.jabatan.getIdJabatan() + "', "
                     + " nama='" + this.nama + "', "
-                    + " id_jabatan='" + this.jabatan + "', "
                     + " tanggal_lahir='" + this.ttl + "', "
                     + " no_telp='" + this.no_telp + "', "
                     + " email='" + this.email + "', "
@@ -203,10 +203,10 @@ public class Pegawai {
             DBHelper.executeQuery(SQL);
         }
     }
-    
+
     public void delete() {
         String SQL = "DELETE FROM pegawai WHERE nip='" + this.nip + "'";
         DBHelper.executeQuery(SQL);
     }
-    
+
 }

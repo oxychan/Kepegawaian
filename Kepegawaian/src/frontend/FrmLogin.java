@@ -1,8 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package frontend;
+
+import backend.User;
 
 /**
  *
@@ -94,6 +93,11 @@ public class FrmLogin extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(248, 248, 248));
         jButton1.setText("Login");
         jButton1.setBorder(null);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel5.setText("X");
@@ -125,13 +129,14 @@ public class FrmLogin extends javax.swing.JFrame {
                         .addGap(76, 76, 76))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRightLayout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addContainerGap())))
+                        .addGap(21, 21, 21))))
         );
         pnlRightLayout.setVerticalGroup(
             pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlRightLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel5)
-                .addGap(84, 84, 84)
+                .addGap(72, 72, 72)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,6 +178,26 @@ public class FrmLogin extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabel5MouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String nip = txtUsername.getText();
+        char[] password = txtPassword.getPassword();
+        String pass = String.valueOf(password);
+        User user = new User();
+        
+        if (user.login(nip, pass).getIdUser() > 0) {
+            System.out.println("Login berhasil");
+        } else {
+            System.out.println("Login tidak asik");
+        }
+        
+        clearForm();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void clearForm() {
+        txtUsername.setText("");
+        txtPassword.setText("");
+    }
     /**
      * @param args the command line arguments
      */
