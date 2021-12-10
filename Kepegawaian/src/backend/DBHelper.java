@@ -50,6 +50,29 @@ public class DBHelper {
         }
         return result;
     }
+    
+        public static String insertQueryGetIdStr(String query) {
+        bukaKoneksi();
+        int num = 0;
+        String result = "null";
+
+        try {
+            Statement stmt = koneksi.createStatement();
+            num = stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet rs = stmt.getGeneratedKeys();
+
+            if (rs.next()) {
+                result = rs.getString(1);
+            }
+            rs.close();
+            stmt.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            result = "null";
+        }
+        return result;
+    }
 
     public static boolean executeQuery(String query) {
         bukaKoneksi();
