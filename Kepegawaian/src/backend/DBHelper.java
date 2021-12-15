@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,7 +24,7 @@ public class DBHelper {
                 DriverManager.registerDriver(new com.mysql.jdbc.Driver());
                 koneksi = DriverManager.getConnection(url, user, password);
             } catch (SQLException t) {
-                System.out.println("Error koneksi!");
+                JOptionPane.showMessageDialog(null, "Terjadi kesalahan saat melakukan koneksi ke database!");
             }
         }
     }

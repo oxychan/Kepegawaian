@@ -2,13 +2,16 @@
 package frontend;
 
 import backend.User;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author taufik
  */
 public class FrmLogin extends javax.swing.JFrame {
-
+    
+    private int x = 0, y = 0;
+    
     /**
      * Creates new form FrmLogin
      */
@@ -35,11 +38,21 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                formMouseDragged(evt);
+            }
+        });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                formMousePressed(evt);
+            }
+        });
 
         pnlLeft.setBackground(new java.awt.Color(39, 102, 120));
 
@@ -88,14 +101,14 @@ public class FrmLogin extends javax.swing.JFrame {
 
         jSeparator2.setBackground(new java.awt.Color(40, 40, 40));
 
-        jButton1.setBackground(new java.awt.Color(39, 102, 120));
-        jButton1.setFont(new java.awt.Font("Ubuntu", 1, 16)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(248, 248, 248));
-        jButton1.setText("Login");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnLogin.setBackground(new java.awt.Color(39, 102, 120));
+        btnLogin.setFont(new java.awt.Font("Ubuntu", 1, 16)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(248, 248, 248));
+        btnLogin.setText("Login");
+        btnLogin.setBorder(null);
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnLoginActionPerformed(evt);
             }
         });
 
@@ -125,7 +138,7 @@ public class FrmLogin extends javax.swing.JFrame {
                             .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(41, 41, 41))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRightLayout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(76, 76, 76))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRightLayout.createSequentialGroup()
                         .addComponent(jLabel5)
@@ -149,7 +162,7 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -178,7 +191,7 @@ public class FrmLogin extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabel5MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         String nip = txtUsername.getText();
         char[] password = txtPassword.getPassword();
@@ -188,11 +201,23 @@ public class FrmLogin extends javax.swing.JFrame {
         if (user.login(nip, pass).getIdUser() > 0) {
             System.out.println("Login berhasil");
         } else {
-            System.out.println("Login tidak asik");
+            JOptionPane.showMessageDialog(null, "Username atau password salah!");
         }
         
         clearForm();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+        // TODO add your handling code here:
+        // set x and y with new value
+        this.x = evt.getX();
+        this.y = evt.getY();
+    }//GEN-LAST:event_formMousePressed
+
+    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
+        // TODO add your handling code here:
+        setLocation(evt.getXOnScreen() - this.x, evt.getYOnScreen() - this.y);
+    }//GEN-LAST:event_formMouseDragged
 
     public void clearForm() {
         txtUsername.setText("");
@@ -234,7 +259,7 @@ public class FrmLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
