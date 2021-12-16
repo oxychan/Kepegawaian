@@ -1,6 +1,7 @@
 
 package frontend;
 
+import backend.Pegawai;
 import backend.User;
 import javax.swing.JOptionPane;
 
@@ -11,6 +12,9 @@ import javax.swing.JOptionPane;
 public class FrmLogin extends javax.swing.JFrame {
     
     private int x = 0, y = 0;
+    
+    
+    FrmHome home = new FrmHome();
     
     /**
      * Creates new form FrmLogin
@@ -198,8 +202,15 @@ public class FrmLogin extends javax.swing.JFrame {
         String pass = String.valueOf(password);
         User user = new User();
         
-        if (user.login(nip, pass).getIdUser() > 0) {
+        user = user.login(nip, pass);
+        
+        if (user.getIdUser() > 0) {
             System.out.println("Login berhasil");
+            Pegawai pegawai = new Pegawai().getById(user.getPegawai().getNip());
+//            String nips = pegawai.getNip();
+            String name = pegawai.getNama();
+            home.greetings(name);
+            home.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Username atau password salah!");
         }

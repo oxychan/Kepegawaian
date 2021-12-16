@@ -104,7 +104,7 @@ public class Jabatan {
             this.idJabatan = DBHelper.insertQueryGetId(SQL);
         } else {
             String SQL = "UPDATE jabatan SET "
-                    + " nama_jabatan ='" + this.jabatan + "', "
+                    + " nama_jabatan ='" + this.jabatan + "' "
                     + " WHERE id_jabatan='" + this.idJabatan + "'";
             DBHelper.executeQuery(SQL);
         }
