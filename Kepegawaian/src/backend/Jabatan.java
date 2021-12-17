@@ -36,6 +36,10 @@ public class Jabatan {
         this.jabatan = jabatan;
     }
     
+    public String toString() {
+        return jabatan;
+    }
+    
     public Jabatan getById(int id) {
         Jabatan jabatan = new Jabatan();
         

@@ -2,6 +2,7 @@ package backend;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -94,6 +95,21 @@ public class Pegawai {
 
     public void setJamKerja(int jamKerja) {
         this.jamKerja = jamKerja;
+    }
+    
+    public String getInfoPegawai() {
+        String totalPegawai= "";
+        
+        ResultSet rs = DBHelper.selectQuery("SELECT COUNT(*) AS count FROM pegawai");
+        
+        try {
+            while(rs.next()) {
+                totalPegawai = rs.getString("count");
+            }
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, "error when getting information");
+        }
+        return totalPegawai;
     }
 
     public Pegawai getById(String nip) {
@@ -197,7 +213,7 @@ public class Pegawai {
                     + " tanggal_lahir='" + this.ttl + "', "
                     + " no_telp='" + this.no_telp + "', "
                     + " email='" + this.email + "', "
-                    + " alamat=0'" + this.alamat + "', "
+                    + " alamat='" + this.alamat + "', "
                     + " jam_kerja='" + this.jamKerja + "' "
                     + " WHERE nip='" + this.nip + "'";
             DBHelper.executeQuery(SQL);

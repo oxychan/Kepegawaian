@@ -6,6 +6,7 @@ import backend.User;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -33,6 +34,15 @@ public class FrmHome extends javax.swing.JFrame {
         
         //menampilkan data pada tabel jabatan
         tampilkanDataJabatan();
+        
+        //menampilkan data pada combo box
+        showComboData(); 
+        
+        //menampilkan data pegawai pada tabel pegawai
+        showAllPegawai();
+        
+        //menampilkan jumlah data pada panel info dashboard
+        showPegawaiInformation();
     }
 
     /**
@@ -115,27 +125,27 @@ public class FrmHome extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         cmbJabatanPegawai = new javax.swing.JComboBox<>();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        pnlBtnSimpanJabatan1 = new javax.swing.JPanel();
+        tbPegawai = new javax.swing.JTable();
+        pnlBtnSimpanPegawai = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
-        pnlBtnAddNewJabatan1 = new javax.swing.JPanel();
+        pnlBtnAddNewPegawai = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
-        pnlBtnHapusJabatan1 = new javax.swing.JPanel();
+        pnlBtnHapusPegawai = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         txtEmailPegawai = new javax.swing.JTextField();
-        txtCariJabatan1 = new javax.swing.JTextField();
-        pnlBtnCariJabatan1 = new javax.swing.JPanel();
+        txtCariPegawai = new javax.swing.JTextField();
+        pnlBtnCariPegawai = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         txtTelpPegawai = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         txtTglLahirPegawai = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txtJamkerja = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        taAlamat = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -968,7 +978,7 @@ public class FrmHome extends javax.swing.JFrame {
         cmbJabatanPegawai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbJabatanPegawai.setPreferredSize(new java.awt.Dimension(82, 40));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbPegawai.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -979,13 +989,18 @@ public class FrmHome extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable1);
-
-        pnlBtnSimpanJabatan1.setBackground(new java.awt.Color(0, 255, 117));
-        pnlBtnSimpanJabatan1.setPreferredSize(new java.awt.Dimension(94, 40));
-        pnlBtnSimpanJabatan1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tbPegawai.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlBtnSimpanJabatan1MouseClicked(evt);
+                tbPegawaiMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tbPegawai);
+
+        pnlBtnSimpanPegawai.setBackground(new java.awt.Color(0, 255, 117));
+        pnlBtnSimpanPegawai.setPreferredSize(new java.awt.Dimension(94, 40));
+        pnlBtnSimpanPegawai.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlBtnSimpanPegawaiMouseClicked(evt);
             }
         });
 
@@ -993,25 +1008,25 @@ public class FrmHome extends javax.swing.JFrame {
         jLabel22.setForeground(new java.awt.Color(254, 254, 254));
         jLabel22.setText("Simpan");
 
-        javax.swing.GroupLayout pnlBtnSimpanJabatan1Layout = new javax.swing.GroupLayout(pnlBtnSimpanJabatan1);
-        pnlBtnSimpanJabatan1.setLayout(pnlBtnSimpanJabatan1Layout);
-        pnlBtnSimpanJabatan1Layout.setHorizontalGroup(
-            pnlBtnSimpanJabatan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlBtnSimpanJabatan1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlBtnSimpanPegawaiLayout = new javax.swing.GroupLayout(pnlBtnSimpanPegawai);
+        pnlBtnSimpanPegawai.setLayout(pnlBtnSimpanPegawaiLayout);
+        pnlBtnSimpanPegawaiLayout.setHorizontalGroup(
+            pnlBtnSimpanPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBtnSimpanPegawaiLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel22)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
-        pnlBtnSimpanJabatan1Layout.setVerticalGroup(
-            pnlBtnSimpanJabatan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlBtnSimpanPegawaiLayout.setVerticalGroup(
+            pnlBtnSimpanPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        pnlBtnAddNewJabatan1.setBackground(new java.awt.Color(0, 165, 226));
-        pnlBtnAddNewJabatan1.setPreferredSize(new java.awt.Dimension(136, 40));
-        pnlBtnAddNewJabatan1.addMouseListener(new java.awt.event.MouseAdapter() {
+        pnlBtnAddNewPegawai.setBackground(new java.awt.Color(0, 165, 226));
+        pnlBtnAddNewPegawai.setPreferredSize(new java.awt.Dimension(136, 40));
+        pnlBtnAddNewPegawai.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlBtnAddNewJabatan1MouseClicked(evt);
+                pnlBtnAddNewPegawaiMouseClicked(evt);
             }
         });
 
@@ -1019,25 +1034,25 @@ public class FrmHome extends javax.swing.JFrame {
         jLabel23.setForeground(new java.awt.Color(254, 254, 254));
         jLabel23.setText("Tambah Baru");
 
-        javax.swing.GroupLayout pnlBtnAddNewJabatan1Layout = new javax.swing.GroupLayout(pnlBtnAddNewJabatan1);
-        pnlBtnAddNewJabatan1.setLayout(pnlBtnAddNewJabatan1Layout);
-        pnlBtnAddNewJabatan1Layout.setHorizontalGroup(
-            pnlBtnAddNewJabatan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlBtnAddNewJabatan1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlBtnAddNewPegawaiLayout = new javax.swing.GroupLayout(pnlBtnAddNewPegawai);
+        pnlBtnAddNewPegawai.setLayout(pnlBtnAddNewPegawaiLayout);
+        pnlBtnAddNewPegawaiLayout.setHorizontalGroup(
+            pnlBtnAddNewPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBtnAddNewPegawaiLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jLabel23)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
-        pnlBtnAddNewJabatan1Layout.setVerticalGroup(
-            pnlBtnAddNewJabatan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlBtnAddNewPegawaiLayout.setVerticalGroup(
+            pnlBtnAddNewPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        pnlBtnHapusJabatan1.setBackground(new java.awt.Color(253, 67, 88));
-        pnlBtnHapusJabatan1.setPreferredSize(new java.awt.Dimension(83, 40));
-        pnlBtnHapusJabatan1.addMouseListener(new java.awt.event.MouseAdapter() {
+        pnlBtnHapusPegawai.setBackground(new java.awt.Color(253, 67, 88));
+        pnlBtnHapusPegawai.setPreferredSize(new java.awt.Dimension(83, 40));
+        pnlBtnHapusPegawai.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlBtnHapusJabatan1MouseClicked(evt);
+                pnlBtnHapusPegawaiMouseClicked(evt);
             }
         });
 
@@ -1045,17 +1060,17 @@ public class FrmHome extends javax.swing.JFrame {
         jLabel24.setForeground(new java.awt.Color(254, 254, 254));
         jLabel24.setText("Hapus");
 
-        javax.swing.GroupLayout pnlBtnHapusJabatan1Layout = new javax.swing.GroupLayout(pnlBtnHapusJabatan1);
-        pnlBtnHapusJabatan1.setLayout(pnlBtnHapusJabatan1Layout);
-        pnlBtnHapusJabatan1Layout.setHorizontalGroup(
-            pnlBtnHapusJabatan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlBtnHapusJabatan1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlBtnHapusPegawaiLayout = new javax.swing.GroupLayout(pnlBtnHapusPegawai);
+        pnlBtnHapusPegawai.setLayout(pnlBtnHapusPegawaiLayout);
+        pnlBtnHapusPegawaiLayout.setHorizontalGroup(
+            pnlBtnHapusPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBtnHapusPegawaiLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel24)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
-        pnlBtnHapusJabatan1Layout.setVerticalGroup(
-            pnlBtnHapusJabatan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlBtnHapusPegawaiLayout.setVerticalGroup(
+            pnlBtnHapusPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
@@ -1063,24 +1078,24 @@ public class FrmHome extends javax.swing.JFrame {
 
         txtEmailPegawai.setPreferredSize(new java.awt.Dimension(17, 40));
 
-        pnlBtnCariJabatan1.setBackground(new java.awt.Color(63, 63, 63));
-        pnlBtnCariJabatan1.setPreferredSize(new java.awt.Dimension(71, 40));
+        pnlBtnCariPegawai.setBackground(new java.awt.Color(63, 63, 63));
+        pnlBtnCariPegawai.setPreferredSize(new java.awt.Dimension(71, 40));
 
         jLabel26.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(228, 228, 228));
         jLabel26.setText("Cari");
 
-        javax.swing.GroupLayout pnlBtnCariJabatan1Layout = new javax.swing.GroupLayout(pnlBtnCariJabatan1);
-        pnlBtnCariJabatan1.setLayout(pnlBtnCariJabatan1Layout);
-        pnlBtnCariJabatan1Layout.setHorizontalGroup(
-            pnlBtnCariJabatan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlBtnCariJabatan1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlBtnCariPegawaiLayout = new javax.swing.GroupLayout(pnlBtnCariPegawai);
+        pnlBtnCariPegawai.setLayout(pnlBtnCariPegawaiLayout);
+        pnlBtnCariPegawaiLayout.setHorizontalGroup(
+            pnlBtnCariPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBtnCariPegawaiLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel26)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
-        pnlBtnCariJabatan1Layout.setVerticalGroup(
-            pnlBtnCariJabatan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlBtnCariPegawaiLayout.setVerticalGroup(
+            pnlBtnCariPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
@@ -1094,13 +1109,13 @@ public class FrmHome extends javax.swing.JFrame {
 
         jLabel29.setText("Jam Kerja");
 
-        jTextField6.setPreferredSize(new java.awt.Dimension(17, 40));
+        txtJamkerja.setPreferredSize(new java.awt.Dimension(17, 40));
 
         jLabel30.setText("Alamat");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane4.setViewportView(jTextArea1);
+        taAlamat.setColumns(20);
+        taAlamat.setRows(5);
+        jScrollPane4.setViewportView(taAlamat);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -1127,13 +1142,13 @@ public class FrmHome extends javax.swing.JFrame {
                                         .addComponent(txtEmailPegawai, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(cmbJabatanPegawai, javax.swing.GroupLayout.Alignment.LEADING, 0, 307, Short.MAX_VALUE)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                            .addComponent(pnlBtnAddNewJabatan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(pnlBtnAddNewPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(31, 31, 31)
-                                            .addComponent(pnlBtnHapusJabatan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(pnlBtnHapusPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(txtNamaPegawai, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(pnlBtnSimpanJabatan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(pnlBtnSimpanPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(437, 437, 437)))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel27)
@@ -1145,10 +1160,10 @@ public class FrmHome extends javax.swing.JFrame {
                                     .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtTelpPegawai, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtTglLahirPegawai, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtCariJabatan1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE))
+                                    .addComponent(txtJamkerja, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtCariPegawai, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pnlBtnCariJabatan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(pnlBtnCariPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -1169,7 +1184,7 @@ public class FrmHome extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel29)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtJamkerja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel30))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
@@ -1194,13 +1209,13 @@ public class FrmHome extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtEmailPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(pnlBtnSimpanJabatan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(pnlBtnSimpanPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(pnlBtnAddNewJabatan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pnlBtnHapusJabatan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCariJabatan1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pnlBtnCariJabatan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(pnlBtnAddNewPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pnlBtnHapusPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCariPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pnlBtnCariPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
@@ -1430,7 +1445,6 @@ public class FrmHome extends javax.swing.JFrame {
         jabatan.save();
         txtIdJabatanMain.setText(Integer.toString(jabatan.getIdJabatan()));
         tampilkanDataJabatan(); 
-        clearFormJabatan();
     }//GEN-LAST:event_pnlBtnSimpanJabatanMouseClicked
 
     private void pnlBtnAddNewJabatanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBtnAddNewJabatanMouseClicked
@@ -1466,17 +1480,75 @@ public class FrmHome extends javax.swing.JFrame {
         cardlayout.show(pnlCards, "pnlKelolaPegawaiDetail");
     }//GEN-LAST:event_pnlBtnKelolaPegawaiMouseClicked
 
-    private void pnlBtnSimpanJabatan1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBtnSimpanJabatan1MouseClicked
+    private void pnlBtnSimpanPegawaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBtnSimpanPegawaiMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_pnlBtnSimpanJabatan1MouseClicked
+        String nip = txtNip.getText();
+        String nama = txtNamaPegawai.getText();
+        Jabatan jabatan = (Jabatan) cmbJabatanPegawai.getSelectedItem();
+        String ttl = txtTglLahirPegawai.getText();
+        String no_telp = txtTelpPegawai.getText();
+        String email = txtEmailPegawai.getText();
+        String alamat = taAlamat.getText();
+        int jamKerja = Integer.parseInt(txtJamkerja.getText());
+        
+        Pegawai pegawai = new Pegawai(nip, nama, jabatan, ttl, no_telp, email, alamat, jamKerja);
+        
+        pegawai.save();
+        
+        //memperbarui data pada tabel
+        showAllPegawai();
+        
+        //memperbarui data informasi pada dashboard
+        showPegawaiInformation();
+    }//GEN-LAST:event_pnlBtnSimpanPegawaiMouseClicked
 
-    private void pnlBtnAddNewJabatan1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBtnAddNewJabatan1MouseClicked
+    private void pnlBtnAddNewPegawaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBtnAddNewPegawaiMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_pnlBtnAddNewJabatan1MouseClicked
+        clearFormPegawai();
+    }//GEN-LAST:event_pnlBtnAddNewPegawaiMouseClicked
 
-    private void pnlBtnHapusJabatan1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBtnHapusJabatan1MouseClicked
+    private void pnlBtnHapusPegawaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBtnHapusPegawaiMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_pnlBtnHapusJabatan1MouseClicked
+        DefaultTableModel model = (DefaultTableModel) tbPegawai.getModel();
+        int selectedRow = tbPegawai.getSelectedRow();
+        
+        Pegawai pegawai = new Pegawai().getById(model.getValueAt(selectedRow, 0).toString());
+        
+        pegawai.delete();
+        
+        //perbarui data pada table
+        showAllPegawai();
+        
+        //perbarui informasi pada dashboard
+        showPegawaiInformation();
+        
+        //clear forms
+        clearFormPegawai();
+    }//GEN-LAST:event_pnlBtnHapusPegawaiMouseClicked
+
+    private void tbPegawaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPegawaiMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tbPegawai.getModel();
+        int selectedRow = tbPegawai.getSelectedRow();
+        
+        txtNip.setText(model.getValueAt(selectedRow, 0).toString());
+        txtNamaPegawai.setText(model.getValueAt(selectedRow, 1).toString());
+        taAlamat.setText(model.getValueAt(selectedRow, 6).toString());
+        txtEmailPegawai.setText(model.getValueAt(selectedRow, 5).toString());
+        txtTelpPegawai.setText(model.getValueAt(selectedRow, 4).toString());
+        txtTglLahirPegawai.setText(model.getValueAt(selectedRow, 3).toString());
+        txtJamkerja.setText(model.getValueAt(selectedRow, 7).toString());       
+        
+        int index = 0;
+        for (Jabatan jabatan : new Jabatan().getAll()) {
+            if(jabatan.getJabatan().contains(model.getValueAt(selectedRow, 2).toString())) {
+                break;
+            }
+            index++;
+        }
+        cmbJabatanPegawai.setSelectedIndex(index);
+        
+    }//GEN-LAST:event_tbPegawaiMouseClicked
 //   Akhir kode kelola pegawai
     
     public void setColor(JPanel panel) {
@@ -1513,7 +1585,50 @@ public class FrmHome extends javax.swing.JFrame {
         }
     }
 //    Akhir dari panel Jabatan
+    
+//    Kode untuk panel kelola pegawai
+    public void showAllPegawai() {
+        String[] kolom = {"NIP", "Nama", "Jabatan", "Tgl Lahir", "No Telp", "Email", "Alamat", "Jam Kerja"};
+        ArrayList<Pegawai> list = new Pegawai().getAll();
+        Object rowData[] = new Object[8];
         
+        tbPegawai.setModel(new DefaultTableModel(new Object[][] {}, kolom));
+        
+        for(Pegawai pegawai : list) {
+            rowData[0] = pegawai.getNip();
+            rowData[1] = pegawai.getNama();
+            rowData[2] = pegawai.getJabatan().getById(pegawai.getJabatan().getIdJabatan()).getJabatan();
+            rowData[3] = pegawai.getTtl();
+            rowData[4] = pegawai.getNo_telp();
+            rowData[5] = pegawai.getEmail();
+            rowData[6] = pegawai.getAlamat();
+            rowData[7] = pegawai.getJamKerja();
+            
+            ((DefaultTableModel)tbPegawai.getModel()).addRow(rowData);
+        }
+    }
+    
+    public void clearFormPegawai() {
+        txtNip.setText("");
+        txtNamaPegawai.setText("");
+        taAlamat.setText("");
+        txtEmailPegawai.setText("");
+        txtTelpPegawai.setText("");
+        txtTglLahirPegawai.setText("");
+        cmbJabatanPegawai.setSelectedIndex(0);
+        txtJamkerja.setText("");        
+    }
+//    Akhir dari panel kelola pegawai
+    
+//    Menampilkan semua informasi pada dashboard
+    public void showPegawaiInformation() {
+        lbCountPegawai.setText(new Pegawai().getInfoPegawai());
+    }
+//    Akhir dari dashboard
+    public void showComboData() {
+        cmbJabatanPegawai.setModel(new DefaultComboBoxModel(new Jabatan().getAll().toArray()));
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -1591,9 +1706,6 @@ public class FrmHome extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSplitPane jSplitPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel lbCountPegawai;
     private javax.swing.JLabel lbCountPenggajian;
     private javax.swing.JLabel lbCountUser;
@@ -1603,19 +1715,19 @@ public class FrmHome extends javax.swing.JFrame {
     private javax.swing.JLabel logout;
     private javax.swing.JLabel pegawai;
     private javax.swing.JPanel pnlBtnAddNewJabatan;
-    private javax.swing.JPanel pnlBtnAddNewJabatan1;
+    private javax.swing.JPanel pnlBtnAddNewPegawai;
     private javax.swing.JPanel pnlBtnCariJabatan;
-    private javax.swing.JPanel pnlBtnCariJabatan1;
+    private javax.swing.JPanel pnlBtnCariPegawai;
     private javax.swing.JPanel pnlBtnGaji;
     private javax.swing.JPanel pnlBtnHapusJabatan;
-    private javax.swing.JPanel pnlBtnHapusJabatan1;
+    private javax.swing.JPanel pnlBtnHapusPegawai;
     private javax.swing.JPanel pnlBtnHome;
     private javax.swing.JPanel pnlBtnKelolaJabatan;
     private javax.swing.JPanel pnlBtnKelolaPegawai;
     private javax.swing.JPanel pnlBtnLogout;
     private javax.swing.JPanel pnlBtnPegawai;
     private javax.swing.JPanel pnlBtnSimpanJabatan;
-    private javax.swing.JPanel pnlBtnSimpanJabatan1;
+    private javax.swing.JPanel pnlBtnSimpanPegawai;
     private javax.swing.JPanel pnlBtnUser;
     private javax.swing.JPanel pnlCards;
     private javax.swing.JPanel pnlDashboard;
@@ -1632,13 +1744,16 @@ public class FrmHome extends javax.swing.JFrame {
     private javax.swing.JPanel pnlPegawai;
     private javax.swing.JPanel pnlPenggajian;
     private javax.swing.JPanel pnlUser;
+    private javax.swing.JTextArea taAlamat;
     private javax.swing.JTable tbJabatan;
+    private javax.swing.JTable tbPegawai;
     private javax.swing.JTable tbPenggajian;
     private javax.swing.JTextField txtCariJabatan;
-    private javax.swing.JTextField txtCariJabatan1;
+    private javax.swing.JTextField txtCariPegawai;
     private javax.swing.JTextField txtEmailPegawai;
     private javax.swing.JTextField txtIdJabatanMain;
     private javax.swing.JTextField txtJabatanMain;
+    private javax.swing.JTextField txtJamkerja;
     private javax.swing.JTextField txtNamaPegawai;
     private javax.swing.JTextField txtNip;
     private javax.swing.JTextField txtTelpPegawai;
