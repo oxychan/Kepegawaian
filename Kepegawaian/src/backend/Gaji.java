@@ -48,7 +48,7 @@ public class Gaji {
     public Gaji getById(int id) {
         Gaji gaji = new Gaji();
         
-        ResultSet rs = DBHelper.selectQuery("SELECT * FROM gaji WHERE id_gaji='" + this.idGaji + "' ");
+        ResultSet rs = DBHelper.selectQuery("SELECT * FROM gaji WHERE id_gaji='" + id + "' ");
         
         try {
             while(rs.next()) {
