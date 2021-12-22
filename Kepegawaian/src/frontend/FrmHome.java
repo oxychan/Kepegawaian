@@ -43,6 +43,12 @@ public class FrmHome extends javax.swing.JFrame {
         
         //menampilkan jumlah data pada panel info dashboard
         showPegawaiInformation();
+        showUserInformation();
+        
+        //menampilkan data user pada tabel user
+        showAllUser();
+        
+        found.setVisible(false);
     }
 
     /**
@@ -90,7 +96,12 @@ public class FrmHome extends javax.swing.JFrame {
         pnlBtnKelolaPegawai = new javax.swing.JPanel();
         lbKelolaPegawai = new javax.swing.JLabel();
         pnlGaji = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        pnlBtnKelolaPegawai1 = new javax.swing.JPanel();
+        lbKelolaPegawai1 = new javax.swing.JLabel();
+        pnlBtnKelolaJabatan1 = new javax.swing.JPanel();
+        lbKelolaJabatan1 = new javax.swing.JLabel();
+        pnlBtnKelolaJabatan2 = new javax.swing.JPanel();
+        lbKelolaJabatan2 = new javax.swing.JLabel();
         pnlJabatan = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -110,9 +121,29 @@ public class FrmHome extends javax.swing.JFrame {
         pnlBtnCariJabatan = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         pnlJenisGaji = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
         pnlUser = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        txtIdUserMain = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        txtNipUser = new javax.swing.JTextField();
+        pnlBtnSimpanUser = new javax.swing.JPanel();
+        jLabel33 = new javax.swing.JLabel();
+        pnlBtnAddNewUser = new javax.swing.JPanel();
+        jLabel34 = new javax.swing.JLabel();
+        pnlBtnDeleteUser = new javax.swing.JPanel();
+        jLabel35 = new javax.swing.JLabel();
+        txtCariUser = new javax.swing.JTextField();
+        pnlBtnCariUser = new javax.swing.JPanel();
+        jLabel36 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tbUser = new javax.swing.JTable();
+        jLabel37 = new javax.swing.JLabel();
+        txtPassUser = new javax.swing.JTextField();
+        found = new javax.swing.JLabel();
+        pnlBtnCekNip = new javax.swing.JPanel();
+        jLabel38 = new javax.swing.JLabel();
         pnlPenggajian = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         pnlKelolaPegawaiDetail = new javax.swing.JPanel();
@@ -552,7 +583,7 @@ public class FrmHome extends javax.swing.JFrame {
                     .addComponent(pnlOnDasboard2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlOnDasboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbGreeting))
-                .addGap(0, 30, Short.MAX_VALUE))
+                .addGap(0, 38, Short.MAX_VALUE))
         );
         pnlDashboardLayout.setVerticalGroup(
             pnlDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -650,7 +681,7 @@ public class FrmHome extends javax.swing.JFrame {
                 .addGroup(pnlPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlBtnKelolaJabatan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlBtnKelolaPegawai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(354, Short.MAX_VALUE))
+                .addContainerGap(362, Short.MAX_VALUE))
         );
         pnlPegawaiLayout.setVerticalGroup(
             pnlPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -665,24 +696,135 @@ public class FrmHome extends javax.swing.JFrame {
         pnlCards.add(pnlPegawai, "pnlPegawai");
 
         pnlGaji.setBackground(new java.awt.Color(238, 238, 238));
+        pnlGaji.setPreferredSize(new java.awt.Dimension(936, 741));
 
-        jLabel4.setText("Gaji");
+        pnlBtnKelolaPegawai1.setBackground(new java.awt.Color(71, 96, 114));
+        pnlBtnKelolaPegawai1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(71, 96, 114), 2));
+        pnlBtnKelolaPegawai1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlBtnKelolaPegawai1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlBtnKelolaPegawai1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlBtnKelolaPegawai1MouseExited(evt);
+            }
+        });
+
+        lbKelolaPegawai1.setFont(new java.awt.Font("Ubuntu", 1, 20)); // NOI18N
+        lbKelolaPegawai1.setForeground(new java.awt.Color(254, 254, 254));
+        lbKelolaPegawai1.setText("Kelola Gaji");
+
+        javax.swing.GroupLayout pnlBtnKelolaPegawai1Layout = new javax.swing.GroupLayout(pnlBtnKelolaPegawai1);
+        pnlBtnKelolaPegawai1.setLayout(pnlBtnKelolaPegawai1Layout);
+        pnlBtnKelolaPegawai1Layout.setHorizontalGroup(
+            pnlBtnKelolaPegawai1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBtnKelolaPegawai1Layout.createSequentialGroup()
+                .addGap(103, 103, 103)
+                .addComponent(lbKelolaPegawai1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnlBtnKelolaPegawai1Layout.setVerticalGroup(
+            pnlBtnKelolaPegawai1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBtnKelolaPegawai1Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(lbKelolaPegawai1)
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+
+        pnlBtnKelolaJabatan1.setBackground(new java.awt.Color(238, 238, 238));
+        pnlBtnKelolaJabatan1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(71, 96, 114), 2));
+        pnlBtnKelolaJabatan1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlBtnKelolaJabatan1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlBtnKelolaJabatan1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlBtnKelolaJabatan1MouseExited(evt);
+            }
+        });
+
+        lbKelolaJabatan1.setFont(new java.awt.Font("Ubuntu", 1, 20)); // NOI18N
+        lbKelolaJabatan1.setForeground(new java.awt.Color(35, 35, 35));
+        lbKelolaJabatan1.setText("Kelola Jenis Gaji");
+
+        javax.swing.GroupLayout pnlBtnKelolaJabatan1Layout = new javax.swing.GroupLayout(pnlBtnKelolaJabatan1);
+        pnlBtnKelolaJabatan1.setLayout(pnlBtnKelolaJabatan1Layout);
+        pnlBtnKelolaJabatan1Layout.setHorizontalGroup(
+            pnlBtnKelolaJabatan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBtnKelolaJabatan1Layout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addComponent(lbKelolaJabatan1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnlBtnKelolaJabatan1Layout.setVerticalGroup(
+            pnlBtnKelolaJabatan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBtnKelolaJabatan1Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(lbKelolaJabatan1)
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+
+        pnlBtnKelolaJabatan2.setBackground(new java.awt.Color(238, 238, 238));
+        pnlBtnKelolaJabatan2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 165, 226), 2));
+        pnlBtnKelolaJabatan2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlBtnKelolaJabatan2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlBtnKelolaJabatan2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlBtnKelolaJabatan2MouseExited(evt);
+            }
+        });
+
+        lbKelolaJabatan2.setFont(new java.awt.Font("Ubuntu", 1, 20)); // NOI18N
+        lbKelolaJabatan2.setForeground(new java.awt.Color(35, 35, 35));
+        lbKelolaJabatan2.setText("Kelola Penggajian");
+
+        javax.swing.GroupLayout pnlBtnKelolaJabatan2Layout = new javax.swing.GroupLayout(pnlBtnKelolaJabatan2);
+        pnlBtnKelolaJabatan2.setLayout(pnlBtnKelolaJabatan2Layout);
+        pnlBtnKelolaJabatan2Layout.setHorizontalGroup(
+            pnlBtnKelolaJabatan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBtnKelolaJabatan2Layout.createSequentialGroup()
+                .addContainerGap(75, Short.MAX_VALUE)
+                .addComponent(lbKelolaJabatan2)
+                .addGap(70, 70, 70))
+        );
+        pnlBtnKelolaJabatan2Layout.setVerticalGroup(
+            pnlBtnKelolaJabatan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBtnKelolaJabatan2Layout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addComponent(lbKelolaJabatan2)
+                .addGap(33, 33, 33))
+        );
 
         javax.swing.GroupLayout pnlGajiLayout = new javax.swing.GroupLayout(pnlGaji);
         pnlGaji.setLayout(pnlGajiLayout);
         pnlGajiLayout.setHorizontalGroup(
             pnlGajiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlGajiLayout.createSequentialGroup()
-                .addContainerGap(596, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(416, 416, 416))
+                .addContainerGap(377, Short.MAX_VALUE)
+                .addGroup(pnlGajiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnlBtnKelolaJabatan1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlBtnKelolaPegawai1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlBtnKelolaJabatan2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(347, 347, 347))
         );
         pnlGajiLayout.setVerticalGroup(
             pnlGajiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlGajiLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jLabel4)
-                .addContainerGap(677, Short.MAX_VALUE))
+                .addGap(190, 190, 190)
+                .addComponent(pnlBtnKelolaPegawai1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pnlBtnKelolaJabatan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pnlBtnKelolaJabatan2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(230, Short.MAX_VALUE))
         );
 
         pnlCards.add(pnlGaji, "pnlGaji");
@@ -874,7 +1016,7 @@ public class FrmHome extends javax.swing.JFrame {
         pnlJabatanLayout.setHorizontalGroup(
             pnlJabatanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlJabatanLayout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
+                .addContainerGap(43, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
@@ -889,47 +1031,273 @@ public class FrmHome extends javax.swing.JFrame {
         pnlCards.add(pnlJabatan, "pnlJabatan");
 
         pnlJenisGaji.setBackground(new java.awt.Color(238, 238, 238));
-
-        jLabel6.setText("Jenis Gaji");
+        pnlJenisGaji.setPreferredSize(new java.awt.Dimension(936, 741));
 
         javax.swing.GroupLayout pnlJenisGajiLayout = new javax.swing.GroupLayout(pnlJenisGaji);
         pnlJenisGaji.setLayout(pnlJenisGajiLayout);
         pnlJenisGajiLayout.setHorizontalGroup(
             pnlJenisGajiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlJenisGajiLayout.createSequentialGroup()
-                .addContainerGap(560, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(413, 413, 413))
+            .addGap(0, 1044, Short.MAX_VALUE)
         );
         pnlJenisGajiLayout.setVerticalGroup(
             pnlJenisGajiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlJenisGajiLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel6)
-                .addContainerGap(688, Short.MAX_VALUE))
+            .addGap(0, 741, Short.MAX_VALUE)
         );
 
         pnlCards.add(pnlJenisGaji, "pnlJenisGaji");
 
         pnlUser.setBackground(new java.awt.Color(238, 238, 238));
+        pnlUser.setPreferredSize(new java.awt.Dimension(936, 741));
 
-        jLabel7.setText("User");
+        jPanel4.setBackground(new java.awt.Color(254, 254, 254));
+
+        jLabel7.setText("Kelola User");
+
+        jLabel31.setText("ID User");
+
+        txtIdUserMain.setEditable(false);
+        txtIdUserMain.setText("0");
+
+        jLabel32.setText("NIP");
+
+        txtNipUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNipUserKeyReleased(evt);
+            }
+        });
+
+        pnlBtnSimpanUser.setBackground(new java.awt.Color(0, 255, 117));
+        pnlBtnSimpanUser.setPreferredSize(new java.awt.Dimension(94, 40));
+        pnlBtnSimpanUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlBtnSimpanUserMouseClicked(evt);
+            }
+        });
+
+        jLabel33.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel33.setText("Simpan");
+
+        javax.swing.GroupLayout pnlBtnSimpanUserLayout = new javax.swing.GroupLayout(pnlBtnSimpanUser);
+        pnlBtnSimpanUser.setLayout(pnlBtnSimpanUserLayout);
+        pnlBtnSimpanUserLayout.setHorizontalGroup(
+            pnlBtnSimpanUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBtnSimpanUserLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel33)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        pnlBtnSimpanUserLayout.setVerticalGroup(
+            pnlBtnSimpanUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel33, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        pnlBtnAddNewUser.setBackground(new java.awt.Color(0, 165, 226));
+        pnlBtnAddNewUser.setPreferredSize(new java.awt.Dimension(136, 40));
+        pnlBtnAddNewUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlBtnAddNewUserMouseClicked(evt);
+            }
+        });
+
+        jLabel34.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel34.setText("Tambah Baru");
+
+        javax.swing.GroupLayout pnlBtnAddNewUserLayout = new javax.swing.GroupLayout(pnlBtnAddNewUser);
+        pnlBtnAddNewUser.setLayout(pnlBtnAddNewUserLayout);
+        pnlBtnAddNewUserLayout.setHorizontalGroup(
+            pnlBtnAddNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBtnAddNewUserLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel34)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        pnlBtnAddNewUserLayout.setVerticalGroup(
+            pnlBtnAddNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        pnlBtnDeleteUser.setBackground(new java.awt.Color(253, 67, 88));
+        pnlBtnDeleteUser.setPreferredSize(new java.awt.Dimension(83, 40));
+        pnlBtnDeleteUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlBtnDeleteUserMouseClicked(evt);
+            }
+        });
+
+        jLabel35.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel35.setText("Hapus");
+
+        javax.swing.GroupLayout pnlBtnDeleteUserLayout = new javax.swing.GroupLayout(pnlBtnDeleteUser);
+        pnlBtnDeleteUser.setLayout(pnlBtnDeleteUserLayout);
+        pnlBtnDeleteUserLayout.setHorizontalGroup(
+            pnlBtnDeleteUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBtnDeleteUserLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel35)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        pnlBtnDeleteUserLayout.setVerticalGroup(
+            pnlBtnDeleteUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel35, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        pnlBtnCariUser.setBackground(new java.awt.Color(63, 63, 63));
+        pnlBtnCariUser.setPreferredSize(new java.awt.Dimension(71, 40));
+
+        jLabel36.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(228, 228, 228));
+        jLabel36.setText("Cari");
+
+        javax.swing.GroupLayout pnlBtnCariUserLayout = new javax.swing.GroupLayout(pnlBtnCariUser);
+        pnlBtnCariUser.setLayout(pnlBtnCariUserLayout);
+        pnlBtnCariUserLayout.setHorizontalGroup(
+            pnlBtnCariUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBtnCariUserLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel36)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        pnlBtnCariUserLayout.setVerticalGroup(
+            pnlBtnCariUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel36, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        tbUser.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tbUser.setRowHeight(25);
+        tbUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbUserMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(tbUser);
+
+        jLabel37.setText("Password");
+
+        found.setFont(new java.awt.Font("Ubuntu", 2, 18)); // NOI18N
+        found.setForeground(new java.awt.Color(0, 255, 68));
+        found.setText("found");
+
+        pnlBtnCekNip.setBackground(new java.awt.Color(63, 63, 63));
+        pnlBtnCekNip.setPreferredSize(new java.awt.Dimension(71, 40));
+        pnlBtnCekNip.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlBtnCekNipMouseClicked(evt);
+            }
+        });
+
+        jLabel38.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(228, 228, 228));
+        jLabel38.setText("Cek");
+
+        javax.swing.GroupLayout pnlBtnCekNipLayout = new javax.swing.GroupLayout(pnlBtnCekNip);
+        pnlBtnCekNip.setLayout(pnlBtnCekNipLayout);
+        pnlBtnCekNipLayout.setHorizontalGroup(
+            pnlBtnCekNipLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBtnCekNipLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel38)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        pnlBtnCekNipLayout.setVerticalGroup(
+            pnlBtnCekNipLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel38, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtPassUser, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel37)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addComponent(pnlBtnAddNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(31, 31, 31)
+                            .addComponent(pnlBtnDeleteUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtCariUser, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(pnlBtnCariUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(pnlBtnSimpanUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 925, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel32)
+                        .addComponent(jLabel31)
+                        .addComponent(txtIdUserMain, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addComponent(txtNipUser, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(pnlBtnCekNip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(found)))
+                    .addComponent(jLabel7))
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel7)
+                .addGap(29, 29, 29)
+                .addComponent(jLabel31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtIdUserMain, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addComponent(jLabel32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtNipUser, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlBtnCekNip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(found)
+                        .addGap(10, 10, 10)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPassUser, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pnlBtnSimpanUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pnlBtnAddNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlBtnDeleteUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCariUser, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlBtnCariUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout pnlUserLayout = new javax.swing.GroupLayout(pnlUser);
         pnlUser.setLayout(pnlUserLayout);
         pnlUserLayout.setHorizontalGroup(
             pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUserLayout.createSequentialGroup()
-                .addContainerGap(585, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addGap(419, 419, 419))
+            .addGroup(pnlUserLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         pnlUserLayout.setVerticalGroup(
             pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlUserLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jLabel7)
-                .addContainerGap(666, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pnlCards.add(pnlUser, "pnlUser");
@@ -943,7 +1311,7 @@ public class FrmHome extends javax.swing.JFrame {
         pnlPenggajianLayout.setHorizontalGroup(
             pnlPenggajianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPenggajianLayout.createSequentialGroup()
-                .addContainerGap(543, Short.MAX_VALUE)
+                .addContainerGap(551, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addGap(417, 417, 417))
         );
@@ -1228,7 +1596,7 @@ public class FrmHome extends javax.swing.JFrame {
             .addGroup(pnlKelolaPegawaiDetailLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         pnlKelolaPegawaiDetailLayout.setVerticalGroup(
             pnlKelolaPegawaiDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1551,6 +1919,115 @@ public class FrmHome extends javax.swing.JFrame {
     }//GEN-LAST:event_tbPegawaiMouseClicked
 //   Akhir kode kelola pegawai
     
+//    Kode untuk pnl kelola user
+    private void pnlBtnSimpanUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBtnSimpanUserMouseClicked
+        // TODO add your handling code here:
+        int id = Integer.parseInt(txtIdUserMain.getText());
+        Pegawai pegawai = new Pegawai().getById(txtNipUser.getText());
+        String password = txtPassUser.getText();
+        
+        User user = new User(id, pegawai, password);
+        
+        user.save();
+        
+        txtIdUserMain.setText(String.valueOf(id));
+        
+        showAllUser();
+        
+        showUserInformation();
+        
+    }//GEN-LAST:event_pnlBtnSimpanUserMouseClicked
+
+    private void pnlBtnAddNewUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBtnAddNewUserMouseClicked
+        // TODO add your handling code here:
+        clearFormUser();
+    }//GEN-LAST:event_pnlBtnAddNewUserMouseClicked
+
+    private void pnlBtnDeleteUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBtnDeleteUserMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
+        int row = tbUser.getSelectedRow();
+        
+        User user = new User().getById(Integer.parseInt(model.getValueAt(row, 0).toString()));
+        
+        user.delete();
+        
+        //memperbarui table user
+        showAllUser();    
+        
+        clearFormUser();
+    }//GEN-LAST:event_pnlBtnDeleteUserMouseClicked
+
+    private void tbUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbUserMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
+        int row = tbUser.getSelectedRow();
+        
+        txtIdUserMain.setText(model.getValueAt(row, 0).toString());
+        txtNipUser.setText(model.getValueAt(row, 1).toString());
+        txtPassUser.setText(model.getValueAt(row, 2).toString());
+        
+        found.setVisible(true);
+        
+    }//GEN-LAST:event_tbUserMouseClicked
+
+    private void txtNipUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNipUserKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNipUserKeyReleased
+
+    private void pnlBtnCekNipMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBtnCekNipMouseClicked
+        // TODO add your handling code here:
+        for(Pegawai pegawai : new Pegawai().getAll()) {
+            if(pegawai.getNip().equals(txtNipUser.getText())) {
+                found.setVisible(true);
+                break;
+            } else {
+                found.setVisible(false);
+            }
+        }
+    }//GEN-LAST:event_pnlBtnCekNipMouseClicked
+
+//    Akhir kelola user
+
+//    Kode untuk menu gaji
+    private void pnlBtnKelolaPegawai1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBtnKelolaPegawai1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlBtnKelolaPegawai1MouseClicked
+
+    private void pnlBtnKelolaPegawai1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBtnKelolaPegawai1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlBtnKelolaPegawai1MouseEntered
+
+    private void pnlBtnKelolaPegawai1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBtnKelolaPegawai1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlBtnKelolaPegawai1MouseExited
+
+    private void pnlBtnKelolaJabatan1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBtnKelolaJabatan1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlBtnKelolaJabatan1MouseClicked
+
+    private void pnlBtnKelolaJabatan1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBtnKelolaJabatan1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlBtnKelolaJabatan1MouseEntered
+
+    private void pnlBtnKelolaJabatan1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBtnKelolaJabatan1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlBtnKelolaJabatan1MouseExited
+
+    private void pnlBtnKelolaJabatan2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBtnKelolaJabatan2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlBtnKelolaJabatan2MouseClicked
+
+    private void pnlBtnKelolaJabatan2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBtnKelolaJabatan2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlBtnKelolaJabatan2MouseEntered
+
+    private void pnlBtnKelolaJabatan2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBtnKelolaJabatan2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlBtnKelolaJabatan2MouseExited
+
+//    Akhir dari menu gaji
+    
     public void setColor(JPanel panel) {
         panel.setBackground(new Color(84, 140, 168));
     }
@@ -1624,11 +2101,40 @@ public class FrmHome extends javax.swing.JFrame {
     public void showPegawaiInformation() {
         lbCountPegawai.setText(new Pegawai().getInfoPegawai());
     }
+    
+    public void showUserInformation() {
+        lbCountUser.setText(new User().getInfoUser());
+    }
 //    Akhir dari dashboard
     public void showComboData() {
         cmbJabatanPegawai.setModel(new DefaultComboBoxModel(new Jabatan().getAll().toArray()));
     }
     
+//    Kode untuk kelola user
+    public void showAllUser() {
+        String[] kolom = {"ID User", "NIP", "Password"};
+        
+        ArrayList<User> listUser = new User().getAll();
+        Object[] obj = new Object[3];
+        
+        tbUser.setModel(new DefaultTableModel(new Object[][] {}, kolom));
+        
+        for(User user : listUser) {
+            obj[0] = user.getIdUser();
+            obj[1] = user.getPegawai().getNip();
+            obj[2] = user.getPassword();
+            
+            ((DefaultTableModel)tbUser.getModel()).addRow(obj);
+        } 
+    }
+    
+    public void clearFormUser() {
+        txtIdUserMain.setText("0");
+        txtNipUser.setText("");
+        txtPassUser.setText("");
+        found.setVisible(false);
+    }
+//    Akhir dari kelola user
     /**
      * @param args the command line arguments
      */
@@ -1666,6 +2172,7 @@ public class FrmHome extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbJabatanPegawai;
+    private javax.swing.JLabel found;
     private javax.swing.JLabel gaji;
     private javax.swing.JLabel home;
     private javax.swing.JLabel jLabel1;
@@ -1692,42 +2199,61 @@ public class FrmHome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JLabel lbCountPegawai;
     private javax.swing.JLabel lbCountPenggajian;
     private javax.swing.JLabel lbCountUser;
     private javax.swing.JLabel lbGreeting;
     private javax.swing.JLabel lbKelolaJabatan;
+    private javax.swing.JLabel lbKelolaJabatan1;
+    private javax.swing.JLabel lbKelolaJabatan2;
     private javax.swing.JLabel lbKelolaPegawai;
+    private javax.swing.JLabel lbKelolaPegawai1;
     private javax.swing.JLabel logout;
     private javax.swing.JLabel pegawai;
     private javax.swing.JPanel pnlBtnAddNewJabatan;
     private javax.swing.JPanel pnlBtnAddNewPegawai;
+    private javax.swing.JPanel pnlBtnAddNewUser;
     private javax.swing.JPanel pnlBtnCariJabatan;
     private javax.swing.JPanel pnlBtnCariPegawai;
+    private javax.swing.JPanel pnlBtnCariUser;
+    private javax.swing.JPanel pnlBtnCekNip;
+    private javax.swing.JPanel pnlBtnDeleteUser;
     private javax.swing.JPanel pnlBtnGaji;
     private javax.swing.JPanel pnlBtnHapusJabatan;
     private javax.swing.JPanel pnlBtnHapusPegawai;
     private javax.swing.JPanel pnlBtnHome;
     private javax.swing.JPanel pnlBtnKelolaJabatan;
+    private javax.swing.JPanel pnlBtnKelolaJabatan1;
+    private javax.swing.JPanel pnlBtnKelolaJabatan2;
     private javax.swing.JPanel pnlBtnKelolaPegawai;
+    private javax.swing.JPanel pnlBtnKelolaPegawai1;
     private javax.swing.JPanel pnlBtnLogout;
     private javax.swing.JPanel pnlBtnPegawai;
     private javax.swing.JPanel pnlBtnSimpanJabatan;
     private javax.swing.JPanel pnlBtnSimpanPegawai;
+    private javax.swing.JPanel pnlBtnSimpanUser;
     private javax.swing.JPanel pnlBtnUser;
     private javax.swing.JPanel pnlCards;
     private javax.swing.JPanel pnlDashboard;
@@ -1748,14 +2274,19 @@ public class FrmHome extends javax.swing.JFrame {
     private javax.swing.JTable tbJabatan;
     private javax.swing.JTable tbPegawai;
     private javax.swing.JTable tbPenggajian;
+    private javax.swing.JTable tbUser;
     private javax.swing.JTextField txtCariJabatan;
     private javax.swing.JTextField txtCariPegawai;
+    private javax.swing.JTextField txtCariUser;
     private javax.swing.JTextField txtEmailPegawai;
     private javax.swing.JTextField txtIdJabatanMain;
+    private javax.swing.JTextField txtIdUserMain;
     private javax.swing.JTextField txtJabatanMain;
     private javax.swing.JTextField txtJamkerja;
     private javax.swing.JTextField txtNamaPegawai;
     private javax.swing.JTextField txtNip;
+    private javax.swing.JTextField txtNipUser;
+    private javax.swing.JTextField txtPassUser;
     private javax.swing.JTextField txtTelpPegawai;
     private javax.swing.JTextField txtTglLahirPegawai;
     private javax.swing.JLabel user;
