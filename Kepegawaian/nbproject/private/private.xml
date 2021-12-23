@@ -5,12 +5,12 @@
             <url>src/frontend/FrmHome.java</url>
             <bookmark id="1">
                 <name/>
-                <line>28</line>
+                <line>29</line>
                 <key/>
             </bookmark>
             <bookmark id="2">
                 <name/>
-                <line>1920</line>
+                <line>1930</line>
                 <key/>
             </bookmark>
         </file>
@@ -18,11 +18,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/taufik/Programming/java%20kuliah/GUI/Kepegawaian/Kepegawaian/src/frontend/FrmHome.java</file>
-            <file>file:/home/taufik/Programming/java%20kuliah/GUI/Kepegawaian/Kepegawaian/src/backend/Jenis_Gaji.java</file>
             <file>file:/home/taufik/Programming/java%20kuliah/GUI/Kepegawaian/Kepegawaian/src/backend/Jabatan.java</file>
             <file>file:/home/taufik/Programming/java%20kuliah/GUI/Kepegawaian/Kepegawaian/src/backend/Pegawai.java</file>
+            <file>file:/home/taufik/Programming/java%20kuliah/GUI/Kepegawaian/Kepegawaian/src/backend/JenisGaji.java</file>
+            <file>file:/home/taufik/Programming/java%20kuliah/GUI/Kepegawaian/Kepegawaian/src/backend/Penggajian.java</file>
             <file>file:/home/taufik/Programming/java%20kuliah/GUI/Kepegawaian/Kepegawaian/src/frontend/FrmLogin.java</file>
             <file>file:/home/taufik/Programming/java%20kuliah/GUI/Kepegawaian/Kepegawaian/src/backend/User.java</file>
+            <file>file:/home/taufik/Programming/java%20kuliah/GUI/Kepegawaian/Kepegawaian/src/backend/Gaji.java</file>
         </group>
     </open-files>
 </project-private>

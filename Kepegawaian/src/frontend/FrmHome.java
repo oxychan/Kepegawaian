@@ -2,6 +2,7 @@ package frontend;
 
 import backend.Jabatan;
 import backend.Pegawai;
+import backend.Penggajian;
 import backend.User;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -40,6 +41,9 @@ public class FrmHome extends javax.swing.JFrame {
         
         //menampilkan data pegawai pada tabel pegawai
         showAllPegawai();
+        
+        //menampilkan data penggajian
+        showAllPenggajian();
         
         //menampilkan jumlah data pada panel info dashboard
         showPegawaiInformation();
@@ -1773,6 +1777,11 @@ public class FrmHome extends javax.swing.JFrame {
         resetColorBtn(pnlBtnPegawai);
         resetColorBtn(pnlBtnGaji);
         resetColorBtn(pnlBtnHome);
+        
+        FrmLogin login = new FrmLogin();
+        
+        login.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_pnlBtnLogoutMouseClicked
 
     private void pnlBtnKelolaPegawaiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBtnKelolaPegawaiMouseEntered
@@ -2105,6 +2114,26 @@ public class FrmHome extends javax.swing.JFrame {
     public void showUserInformation() {
         lbCountUser.setText(new User().getInfoUser());
     }
+    
+    public void showAllPenggajian() {
+        String[] kolom = {"ID", "NIP", "ID Gaji", "Tanggal", "Total Gaji"};
+        
+        ArrayList<Penggajian> listPenggajian = new Penggajian().getAll();
+        Object[] rowData = new Object[5];
+        
+        tbPenggajian.setModel(new DefaultTableModel(new Object[][] {}, kolom));
+        
+        for(Penggajian penggajian : listPenggajian) {
+            rowData[0] = penggajian.getIdPenggajian();
+            rowData[1] = penggajian.getPegawai().getNip();
+            rowData[2] = penggajian.getGaji().getIdGaji();
+            rowData[3] = penggajian.getTglGaji();
+            rowData[4] = penggajian.getTotalGaji();
+            
+            ((DefaultTableModel) tbPenggajian.getModel()).addRow(rowData);
+        }
+        
+    }
 //    Akhir dari dashboard
     public void showComboData() {
         cmbJabatanPegawai.setModel(new DefaultComboBoxModel(new Jabatan().getAll().toArray()));
@@ -2135,6 +2164,8 @@ public class FrmHome extends javax.swing.JFrame {
         found.setVisible(false);
     }
 //    Akhir dari kelola user
+    
+
     /**
      * @param args the command line arguments
      */
