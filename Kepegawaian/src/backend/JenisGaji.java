@@ -45,6 +45,10 @@ public class JenisGaji {
         this.jumlahGaji = jumlahGaji;
     }
     
+    public String toString() {
+        return namaJenisGaji;
+    }
+    
     public JenisGaji getById(int id) {
         JenisGaji jenisGaji = new JenisGaji();
         ResultSet rs = DBHelper.selectQuery("SELECT * FROM jenis_gaji WHERE id_jenis='" + id + "'");
@@ -86,8 +90,9 @@ public class JenisGaji {
         return listJenisGaji;
     }
     
-    public JenisGaji search(String keyword) {
-        JenisGaji jenisGaji  = new JenisGaji();
+    public ArrayList<JenisGaji> search(String keyword) {
+        ArrayList<JenisGaji> list = new ArrayList();
+        
         
         ResultSet rs = DBHelper.selectQuery("SELECT * FROM jenis_gaji " + 
                                             " WHERE id_jenis LIKE '%" + keyword + "%'" + 
@@ -95,15 +100,17 @@ public class JenisGaji {
         
         try {
             while(rs.next()) {
-                jenisGaji = new JenisGaji();
+               JenisGaji jenisGaji  = new JenisGaji();
                 jenisGaji.setIdJenisGaji(rs.getInt("id_jenis"));
                 jenisGaji.setNamaJenisGaji(rs.getString("nama_jenis_gaji"));
                 jenisGaji.setJumlahGaji(rs.getInt("jumlah_gaji"));
+                
+                list.add(jenisGaji);
             }
         } catch(Exception e) {
             e.printStackTrace();
         }
-        return jenisGaji;
+        return list;
     }
     
     public void save() {

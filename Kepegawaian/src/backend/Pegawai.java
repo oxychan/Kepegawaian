@@ -97,6 +97,10 @@ public class Pegawai {
         this.jamKerja = jamKerja;
     }
     
+    public String toString() {
+        return nip;
+    }
+    
     public String getInfoPegawai() {
         String totalPegawai= "";
         

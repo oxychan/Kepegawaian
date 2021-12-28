@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Gaji {
     private int idGaji;
-    private JenisGaji jenisGaji;
+    private JenisGaji jenisGaji = new JenisGaji();
     private String namaGaji;
 
     public Gaji() {
@@ -21,6 +21,10 @@ public class Gaji {
         this.namaGaji = namaGaji;
     }
 
+    public String toString() {
+        return namaGaji;
+    }
+    
     public int getIdGaji() {
         return idGaji;
     }
@@ -45,10 +49,9 @@ public class Gaji {
         this.namaGaji = namaGaji;
     }
     
-    public Gaji getById(int id) {
+     public Gaji getById(int id) {
         Gaji gaji = new Gaji();
-        
-        ResultSet rs = DBHelper.selectQuery("SELECT * FROM gaji WHERE id_gaji='" + id + "' ");
+        ResultSet rs = DBHelper.selectQuery("SELECT * FROM gaji WHERE id_gaji='" + id + "'");
         
         try {
             while(rs.next()) {
@@ -57,9 +60,9 @@ public class Gaji {
                 gaji.setIdGaji(rs.getInt("id_gaji"));
                 gaji.getJenisGaji().setIdJenisGaji(rs.getInt("id_jenis_gaji"));
                 gaji.setNamaGaji(rs.getString("nama_gaji"));
-            }
+            }    
         } catch(Exception e) {
-            
+//            System.out.println("error banget");
         }
         
         return gaji;
@@ -80,15 +83,17 @@ public class Gaji {
                 
                 listGaji.add(gaji);
             }
+                    
         } catch(Exception e) {
-            
+//            System.out.println("gagal getall");
         }
         
         return listGaji;
-    }
-    
-    public Gaji search(String keyword) {
-        Gaji gaji = new Gaji();
+    } 
+         
+    public ArrayList<Gaji> search(String keyword) {
+        ArrayList<Gaji> list = new ArrayList();
+       
         
         ResultSet rs = DBHelper.selectQuery("SELECT * FROM gaji " + 
                                             " WHERE id_gaji LIKE '%" + keyword + "%'" + 
@@ -96,15 +101,17 @@ public class Gaji {
         
         try {
             while(rs.next()) {
-                gaji = new Gaji();
+                 Gaji gaji = new Gaji();
                 gaji.setIdGaji(rs.getInt("id_gaji"));
                 gaji.getJenisGaji().setIdJenisGaji(rs.getInt("id_jenis_gaji"));
                 gaji.setNamaGaji(rs.getString("nama_gaji"));
+                
+                list.add(gaji);
             }
         } catch(Exception e) {
             e.printStackTrace();
         }
-        return gaji;
+        return list;
     }
     
     public void save() {

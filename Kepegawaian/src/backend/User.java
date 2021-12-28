@@ -108,8 +108,8 @@ public class User {
         return user;
     }
     
-     public User search(String keyword) {
-        User user = new User();
+     public ArrayList<User> search(String keyword) {
+        ArrayList<User> listUser = new ArrayList();
         
         ResultSet rs = DBHelper.selectQuery("SELECT * FROM user " + 
                                             " WHERE nip LIKE '%" + keyword + "%'" + 
@@ -117,15 +117,17 @@ public class User {
         
         try {
             while(rs.next()) {
-                user = new User();
+                User user = new User();
                 user.setIdUser(rs.getInt("id_user"));
                 user.getPegawai().setNip(rs.getString("nip"));
                 user.setPassword(rs.getString("password"));
+                
+                listUser.add(user);
             }
         } catch(Exception e) {
             e.printStackTrace();
         }
-        return user;
+        return listUser;
     }
 
     public void save() {

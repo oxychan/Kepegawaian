@@ -18,8 +18,10 @@ public class Penggajian {
     public Penggajian() {
     }
 
-    public Penggajian(int idPenggajian, String tglGaji, int totalGaji) {
+    public Penggajian(int idPenggajian, Pegawai pegawai, Gaji gaji, String tglGaji, int totalGaji) {
         this.idPenggajian = idPenggajian;
+        this.pegawai = pegawai;
+        this.gaji = gaji;
         this.tglGaji = tglGaji;
         this.totalGaji = totalGaji;
     }
@@ -110,8 +112,9 @@ public class Penggajian {
         return listPenggajian;
     }
     
-    public Penggajian search(String keyword) {
-        Penggajian penggajian = new Penggajian();
+    public ArrayList<Penggajian> search(String keyword) {
+        ArrayList<Penggajian> list = new ArrayList();
+ 
         
         ResultSet rs = DBHelper.selectQuery("SELECT * FROM penggajian " + 
                                             " WHERE id_penggajian LIKE '%" + keyword + "%'" + 
@@ -119,18 +122,20 @@ public class Penggajian {
         
         try {
             while(rs.next()) {
-                penggajian = new Penggajian();
+                Penggajian penggajian = new Penggajian();
                 
                 penggajian.setIdPenggajian(rs.getInt("id_penggajian"));
                 penggajian.getPegawai().setNip(rs.getString("nip"));
                 penggajian.getGaji().setIdGaji(rs.getInt("id_gaji"));
                 penggajian.setTglGaji(rs.getString("tgl_penggajian"));
                 penggajian.setTotalGaji(rs.getInt("total_gaji"));
+                
+                list.add(penggajian);
             }
         } catch(Exception e) {
             e.printStackTrace();
         }
-        return penggajian;
+        return list;
     }
     
     public void save() {
@@ -139,7 +144,7 @@ public class Penggajian {
                     + "     '" + this.getPegawai().getNip() + "', "
                     + "     '" + this.getGaji().getIdGaji() + "', "
                     + "     '" + this.tglGaji + "', "
-                    + "     '" + this.totalGaji + "', "
+                    + "     '" + this.totalGaji + "' "
                     + " )";
             this.idPenggajian = DBHelper.insertQueryGetId(SQL);
         } else {
@@ -147,7 +152,7 @@ public class Penggajian {
                     + "  nip='" + this.getPegawai().getNip() + "', "
                     + "  id_gaji='" + this.getGaji().getIdGaji() + "', "
                     + "  tgl_penggajian='" + this.tglGaji + "', "
-                    + "  total_gaji='" + this.totalGaji + "', "
+                    + "  total_gaji='" + this.totalGaji + "' "
                     + " WHERE id_penggajian='" + this.idPenggajian + "' ";
             DBHelper.executeQuery(SQL);
         }
